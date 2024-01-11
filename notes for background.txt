@@ -1,0 +1,37 @@
+		
+		"random_nonsequential_post_screening"
+		"max_mean_std_nonsequential_post_screening"
+		"max_mean_nonsequential_post_screening"
+		"max_mean_continuous_post_screening"
+		"max_mean_std_continuous_post_screening" 
+		"random_continuous_post_screening" 
+		
+		"generator_type":"random_post_screening"
+        "screen_out_equal_or_less":2
+        
+        "remove_avg_hamming_equal_or_less":null
+        "remove_std_hamming_equal_or_greater":null
+        "removal_function_type":"percentage"
+        
+        #noncontinuous target backgrounds
+        "number_of_nonsequential_targets":2
+        "nonsequential_background_target_size":5
+
+        #continous target backgrounds
+        "number_of_continuous_targets":2
+        "continuous_background_target_length":40
+		
+		#no_of_bits
+		#target_no
+		#starting_background_target_number
+		#range_max
+		#range_set
+		#target_dict
+		#passive_removal
+		
+	PerformanceWarning: DataFrame is highly fragmented.  
+	This is usually the result of calling `frame.insert` many times, which has poor performance.  
+	Consider joining all columns at once using pd.concat(axis=1) instead.  
+	To get a de-fragmented frame, use `newframe = frame.copy()`
+	
+	

@@ -1,0 +1,347 @@
+observation_types
+	observe_up_to_five
+	observe_up_to_three
+	observe5_low_entropy_5percent
+	observe5_low_entropy_2pop
+	observe5_low_entropy_x_percent
+	observe5_inverse_proportion_entropy
+
+emission_types
+	random_emission
+
+selection_loop_type
+	all_se_viewed
+	all_se_viewed_selection_se_entropy_modified (deactivated)
+	all_se_viewed_selection_se_time_modified
+	all_se_viewed_w_se_modifier
+
+selection_landscape_types
+	circular_landscape
+	none
+	
+parent_selection types
+	linear_roulette_function
+	linear_selection_function
+	weaker_linear_roulette_selection_function
+	random_fitness
+	random_fitness_simplifed
+	under_min_throw_error
+	random_fitness_simplifed_njit 
+	linear_roulette_function_njit
+
+selection_modifier_type
+	power_function_entropy_modifier
+		selection_modifier_parameters
+			entropy_power_conversion_a <0.065>
+			entropy_power_conversion_b <2>
+			selection_se_entropy_mod_lower_limit <5>
+	reinforcement_context_kernel
+		selection_modifier_parameters
+			"starting_selection_modifier":100,
+            		"max_rc_stream_length":200,
+            		"window_no_change_boundary_lower":0.1,
+            		"window_no_change_boundary_higher":0.3,
+            		"selection_percentage_min":1,
+            		"selection_boundary":0.3,
+			"starting_rc_stream_length":5,
+			"min_rc_stream_length":1,
+			"rc_stream_window_step_shorter":0.01,
+			"rc_stream_window_step_longer":1,
+			"selection_modifier_step_up":1,
+			"selection_modifier_step_down":0.01	
+recombination_type
+	bitwise_recombination
+	bitwise_recombination_njit
+
+mutation_types
+	bitflip_by_individual
+	bitflip_by_individual_se_entropy_modified (deactivated)
+	bitflip_by_individual_se_time_modified 
+	bitflip_by_individual_min1
+	bitflip_by_individual_min1_every_x
+		mutation_modifier_parameters
+			"mutation_min_every_x_modifier":5
+
+data_output_type
+	stream_output_per_repitition_2	
+	stream_output_per_repitition
+	stream_output_per_schedule
+
+target_type
+	"primary"
+	primary options:
+		"target_high": <interger>,
+		"target_low": <interger>,
+		"reward_continvency_type":<"target" or "varied"> <this is used to modify the reinforcement magnitude based on past rewards>
+	
+	"background"
+	background options:
+	<see below>
+	
+background_styles:
+	"high_low"
+	high_low options:
+		"target_high": <digit from phenotype range>
+		"target_low": <digit from phenotype>
+	
+	"random"
+	random options:
+		"no_of_phenotypes": <number of nonsequential digits>
+	
+	"background_generator"
+	background_generator options:
+		<see the options and example below>
+
+Background Generator description:
+The background generator creates background classes, based on certain conditions and rules. These rules are based on statistical measures showing 
+the relationships between "primary" targets and the background targets to be generated. The already generated background targets are passively removed 
+and do not come into play in any of the calculations. Caution: If there are not enough digits remaining after the range is screened, an error will be thrown.
+It is worth using the script in below to make sure your generated background target types do not throw an error before doing a full run. To use the script,
+modify the default_setup frunction in the Background_Generator_Module to the settings you want to test and run the code in your IDE.
+
+from Background_Generator_Module import Background_Generator
+Background_Generator.default_setup()
+background_targets1 = Background_Generator.generate('random_nonsequential_post_screening')
+print('\n')
+print(background_targets1)
+
+background_generator_types:
+    "random_nonsequential_post_screening"
+    "max_mean_std_nonsequential_post_screening"
+    "max_mean_nonsequential_post_screening"
+	
+	nonsequential options:<only required for the previous generator types>
+		"number_of_nonsequential_targets":<interger>,
+        "nonsequential_background_target_size":<number of noncontinous digits to be chosen>,
+		
+    "random_continuous_post_screening"
+    "max_mean_continuous_post_screening"
+    "max_mean_std_continuous_post_screening" 
+    
+	continuous options:<only required for the previous generator types>
+		"number_of_continuous_targets":<interger>,
+        "continuous_background_target_length":<number of continuous digits>,
+		
+background generic options: <used in all cases>
+    "screen_out_equal_or_less":<interger or null>
+    "remove_avg_hamming_equal_or_less":<null or a percentage or value>
+    "remove_std_hamming_equal_or_greater":<null or a percentage or value>
+    "removal_function_type":<"percentage" or "value"> 
+	<percentages must be between 0 and .99 or 1 and 100, values must be real numbers>
+    				
+Reinforcer context instructions:
+TBD
+	um = cls.user_set_reward_modifer_modifier
+	rv = sum(cls.reward_list_varied)
+    rt = sum(cls.reward_list_target)
+	x = rv/rt
+    modifier = (x/(x+1)+0.5)*um	
+
+SE Shift Rules:
+   	"reinforcement_setup": 
+    	{
+        	"3":"itch_1" 
+    	}
+
+This links a target number, 3, with an SE element, itch_1, both need to be created, but the target does not need 
+to be active in each schedule. any time the target is present in the schedule, and the reinforcement is set up, 
+the linked SE will be brought into the "near" group once reinforcement is no longer set up, the linked SE is
+moved to the "far" group. reinforcement_setup is the only shift rule currently written.
+
+
+EXAMPLE FILES:
+Do not put in any of the comments in <> in your file. Follow the JSON file format.
+general experiment settings format:
+{
+	"repetitions":1, <interger> 
+	"default_generations_per_schedule":20500, <interger>
+	"random_shuffle_schedule_x_and_after":3, <interger or null>
+	"data_output_type": "stream_output_per_repitition_2", <see above for options>,
+	"output_entropy":true, <true or false>
+	"output_background":true, <true or false>
+	"output_emitted_behavior_population":true, <true or false>
+	"output_entropy_moving_avg_length":5, <the number of generations worth of entropy to add together>
+	"population_reset_between_schedules":false, <true or false> <if false, the behavioral populations will be preserved>
+	"experiment_timer_style":"generations", <currently, this does nothing because only generations exist>
+	"filename_modifier":<any identifying string>, <this can be any string, the repitition number will be added to the end automatically>
+	"reinforcement_context_magnitude_modifer_active":false, <true or false> <if true, the >
+	"reinforcement_context_user_modifier":1, <number between 0 and 1, will be multipled against the magnitude>
+	"reinforcement_capture_length":10 <interger>
+}
+
+experiment schedule settings format:
+{
+	"target_list":
+	{
+		"target_id":
+		{
+			"1":
+			{
+				"target_type":"primary",
+				"target_high": 511,
+				"target_low": 471,
+				"reward_continvency_type":"target"
+			},
+			"2":
+			{
+				"target_type":"primary",
+				"target_high": 552,
+				"target_low": 512,
+				"reward_continvency_type":"target"
+			},
+			"3":
+			{
+				"target_type":"background",
+				"background_style":"high_low",
+				"target_high": 140,
+				"target_low": 100
+			},
+			"4":
+			{
+				"target_type":"background",
+				"background_style":"random",
+				"no_of_phenotypes":100,
+			},
+			"5":
+			{
+				"target_type":"background",
+				"background_style":"background_generator",
+				"background_generator_settings":
+				{
+    					"generator_type":"max_mean_std_nonsequential_post_screening",
+              				"screen_out_equal_or_less":1,
+               				"remove_avg_hamming_equal_or_less":null,
+               				"remove_std_hamming_equal_or_greater":0.8,
+               				"removal_function_type":"percentage",
+    					"number_of_nonsequential_targets":2,
+               				"nonsequential_background_target_size":40,
+               				"number_of_continuous_targets":2,
+               				"continuous_background_target_length":40
+				}
+			}
+		}
+	}
+	"schedule_list":
+	{
+		"schedule_set_no":
+		{
+			"1":
+			{
+				"nondefault_schedule_generation_count":5,
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"weak-pellet"
+					}
+
+				},
+				"se_near_set":
+				[
+					"wall","wall2"	
+				]
+            	
+			"2":
+			{
+				"nondefault_schedule_generation_count":15,
+				"active_target_id_no":
+				{
+
+					"3":
+					{
+						"reinforcement_rate_type":"FI",
+						"reinforcement_rate": 3,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","itch"	
+				]
+            		}
+		}
+	}
+}
+
+organism settings format:
+{ 
+	"population_size":200,
+	"number_of_binary_digits":10,
+	"percent_replace":100,
+	"mutation_rate":10,
+	"reinforcer_magnitude_data":
+	{
+			"pellet":40,
+			"scratch":10,
+			"weak-pellet":60
+	}
+}
+
+procedure settings format:
+{ 
+	"observation_type":"observe5_low_entropy_x_percent",
+	"observation_entropy_percentage":2, <linked with 'observe5_low_entropy_x_percent' only>
+	"emission_type":"random_emission",
+	"selection_loop_type":"all_se_viewed",
+	"unrewarded_parent_selection_type":"random_fitness_simplifed",
+	"rewarded_parent_selection_type":"linear_roulette_function",
+	"linear_under_min_behaviors_selection_type":"random_fitness_simplifed",
+	"linear_selection_min_behaviors":2,
+	"recombination_type":"bitwise_recombination",
+	"mutation_type":"bitflip_by_individual",
+	"rewarded_selection_landscape_type":"circular_landscape",
+	"unrewarded_selection_landscape_type":"none"
+}
+stimulus environment format:
+{ 
+	"global_environment":
+	{ 
+		"Location_id":
+		{
+			"L1":"near", 			
+			"L2":"far"
+		}
+	},
+	"stimulus_elements":
+	{	 
+		"se_type_1":
+		{
+			"se_quantity":5,
+			"se_stimulus":"wall",
+			"se_start_location":"far"
+		},
+		"se_type_2":
+		{
+			"se_quantity":5,
+			"se_stimulus":"red",
+			"se_start_location":"far"
+		},
+		"se_type_3":
+		{
+			"se_quantity":5,
+			"se_stimulus":"green",
+			"se_start_location":"far"
+		},
+		"se_type_4":
+		{
+			"se_quantity":1,
+			"se_stimulus":"itch",
+			"se_start_location":"far"
+		}
+	},
+	"se_shift_rules":
+	{
+    	"reinforcement_setup":
+    	{
+        	"3":"itch_1" <can be blank>
+    	}
+	}
+}
