@@ -1,0 +1,270 @@
+{ 
+	"target_list":
+	{
+		"target_id":
+		{
+			"1":
+			{
+				"target_type":"primary",
+				"target_high": 511,
+				"target_low": 471,
+				"reward_continvency_type":"target"
+			},
+			"2":
+			{
+				"target_type":"primary",
+				"target_high": 552,
+				"target_low": 512,
+				"reward_continvency_type":"varied"
+			}
+		}
+	},
+	"schedule_list":
+	{
+		"schedule_set_no":
+		{
+			"1":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 20,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 120,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"wallone"	
+				]
+            },
+            "2":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 30,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 110,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"walltwo"	
+				]
+			},
+			"3":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 40,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 100,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"wallthree"	
+				]
+			},
+			"4":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 50,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 90,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"wallfour"
+				]
+			},
+			"5":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 60,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 80,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"wallfive"	
+				]
+			},
+			"6":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 70,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 70,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"wallsix"	
+				]
+			},
+			"7":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 80,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 60,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"wallseven"	
+				]
+			},
+			"8":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 90,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 50,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"walleight"	
+				]
+			},
+			"9":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 100,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 40,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"wallnine"
+				]
+			},
+			"10":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 110,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 30,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"wallten"
+				]
+			},
+			"11":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 120,
+						"reinforcer":"pellet"
+					},
+					"2":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 20,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"walleleven"	
+				]
+			}
+		}
+	}
+}
