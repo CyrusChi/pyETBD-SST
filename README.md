@@ -1,5 +1,6 @@
 # pyETBD-SST
 created and maintained by Cyrus N. Chi
+implemented in Python 3.7.11 
 
 ## Project Description
 This project is a python-based version of Dr. J. J McDowell's Evolutionary Theory of Behavioral Dynamics (ETBD) that allows for the use of stimulus elements as discriminative stimuli. The stimulus elements are based on Estes' Stimulus Sampling Theory (SST). Use of only one stimulus element in the local environment allows the pyETBD-SST to perform identically to the basic computational ETBD.
