@@ -124,18 +124,18 @@ class Experiment_Runner:
         #run phase
 # Multi Threading--------------------------------------------------------------       
         #multi
-        all_args = [(self.all_parameters.get_total_schedule_num(), repitition_set) for repitition_set in range(0,repititions)]
-        # call freeze_support() if in Windows
-        # if os.name == "nt":
-        #     freeze_support()
+        # all_args = [(self.all_parameters.get_total_schedule_num(), repitition_set) for repitition_set in range(0,repititions)]
+        # # call freeze_support() if in Windows
+        # # if os.name == "nt":
+        # #     freeze_support()
 
-        # you can use whatever, but your machine core count is usually a good choice (although maybe not the best)
-        pool = Pool(30)
-        print("cpu_count"+str(30)) 
-        # pool = Pool(cpu_count()-1)
-        # print("cpu_count"+str(cpu_count()-1)) 
+        # # you can use whatever, but your machine core count is usually a good choice (although maybe not the best)
+        # pool = Pool(30)
+        # print("cpu_count"+str(30)) 
+        # # pool = Pool(cpu_count()-1)
+        # # print("cpu_count"+str(cpu_count()-1)) 
        
-        pool.map(self.wrapped_some_function_call, all_args)
+        # pool.map(self.wrapped_some_function_call, all_args)
        
 
        
@@ -144,12 +144,12 @@ class Experiment_Runner:
        
 # ==for windows================================================================
 
-        # repitition_number = 0
-        # for repitition_set in range(0,repititions):
-        #     repitition_number += 1
-        #     print("Repitition number ", repitition_number)
+        repitition_number = 0
+        for repitition_set in range(0,repititions):
+            repitition_number += 1
+            print("Repitition number ", repitition_number)
 
-        #     self.experiment_loop(self.all_parameters.get_total_schedule_num(),repitition_set)            
+            self.experiment_loop(self.all_parameters.get_total_schedule_num(),repitition_set)            
 
   
 # =============================================================================
