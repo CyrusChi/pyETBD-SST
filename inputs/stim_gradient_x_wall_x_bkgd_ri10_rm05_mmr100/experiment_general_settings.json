@@ -1,0 +1,17 @@
+{ 
+	"repetitions":30,  
+	"default_generations_per_schedule":200,
+	"random_shuffle_schedule_x_and_after":3,
+	"data_output_type":"stream_output_per_repitition_3",
+	"output_entropy":true,
+	"output_selection_modifier":true,
+	"output_background":true,
+	"output_emitted_behavior_population":false,
+	"output_entropy_moving_avg_length":5,
+	"population_reset_between_schedules":false,
+	"experiment_timer_style":"generations",
+	"filename_modifier":"Exp3I-1_X_WALL_X_BKGD_RI10_RM05_MMR100_",
+	"reinforcement_context_magnitude_modifer_active":false,
+	"reinforcement_context_user_modifier":1,
+	"reinforcement_capture_length":10
+}

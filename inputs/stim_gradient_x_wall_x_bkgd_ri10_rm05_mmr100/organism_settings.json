@@ -1,0 +1,12 @@
+{ 
+	"population_size":200,
+	"number_of_binary_digits":10,
+	"percent_replace":100,
+	"mutation_rate":10,
+	"reinforcer_magnitude_data":
+	{
+			"pellet":5,
+			"scratch":40,
+			"weak-pellet":60
+	}
+}

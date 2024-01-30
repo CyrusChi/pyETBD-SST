@@ -1,0 +1,343 @@
+{ 
+	"target_list":
+	{
+		"target_id":
+		{
+			"1":
+			{
+				"target_type":"primary",
+				"target_high": 511,
+				"target_low": 471,
+				"reward_continvency_type":"target"
+			},
+			"2":
+			{
+				"target_type":"primary",
+				"target_high": 552,
+				"target_low": 512,
+				"reward_continvency_type":"varied"
+			},			
+			"3":
+			{
+				"target_type":"background",
+				"background_style":"high_low",
+				"target_high": 470,
+				"target_low": 410
+			},
+			"4":
+			{
+				"target_type":"background",
+				"background_style":"high_low",
+				"target_high": 613,
+				"target_low": 553
+			},			
+			"5":
+			{
+				"target_type":"background",
+				"background_style":"background_generator",
+				"background_generator_settings":
+				{
+        			    "generator_type":"random_nonsequential_post_screening",
+                               "screen_out_equal_or_less":1,
+                               "remove_avg_hamming_equal_or_less":null,
+                               "remove_std_hamming_equal_or_greater":null,
+                               "removal_function_type":"percentage",
+                    		   "number_of_nonsequential_targets":1,
+                               "nonsequential_background_target_size":200
+				}
+			}
+		}
+	},
+	"schedule_list":
+	{
+		"schedule_set_no":
+		{
+			"1":
+			{
+				"nondefault_schedule_generation_count":20000,
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"trainingwall","wall"	
+				]
+            },
+			"2":
+			{
+				"nondefault_schedule_generation_count":20000,
+				"active_target_id_no":
+				{
+
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"pellet"
+					}
+				},
+				"se_near_set":
+				[
+					"trainingwall","redone","redtwo","redthree","redfour","redfive"
+				]
+            },
+			"3":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","redone","redtwo","redthree","redfour","rminusone"	
+				]
+            },
+			"4":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","redone","redtwo","redthree","rminustwo","rminusone"	
+				]
+            },
+			"5":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","redone","redtwo","rminusthree","rminustwo","rminusone"	
+				]
+            },
+			"6":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","redone","rminusfour","rminusthree","rminustwo","rminusone"	
+				]
+            },	
+			"7":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","rminusfive","rminusfour","rminusthree","rminustwo","rminusone"	
+				]
+            },
+			"8":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","rplusone","redtwo","redthree","redfour","redfive"	
+				]
+            },
+			"9":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","rplusone","rplustwo","redthree","redfour","redfive"
+				]
+            },
+			"10":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","rplusone","rplustwo","rplusthree","redfour","redfive"
+				]
+            },
+			"11":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","rplusone","rplustwo","rplusthree","rplusfour","redfive"
+				]
+            },	
+			"12":
+			{
+				"active_target_id_no":
+				{
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","rplusone","rplustwo","rplusthree","rplusfour","rplusfive"	
+				]
+            },	
+			"13":
+			{
+				"active_target_id_no":
+				{
+
+					"1":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 0,
+						"reinforcer":"pellet"
+					},
+					"5":
+					{
+						"reinforcement_rate_type":"RI",
+						"reinforcement_rate": 10,
+						"reinforcer":"scratch"
+					}
+				},
+				"se_near_set":
+				[
+					"wall","redone","redtwo","redthree","redfour","redfive"	
+				]
+            }			
+		}
+	}
+}
+        
+    
