@@ -30,8 +30,8 @@ Keywords: ETBD, Stimulus Sampling Theory, Stimulus Control, Complexity Theory
 1. pip install the modules in [requirements.txt](requirements.txt)
 2. Modify settings in inputs
 3. Create a folder named 'outputs'
-4. Run using the following line ('inputs/Test' being the folder where the settings files are stored)
-> **python3 main.py -s inputs**
+4. Run using the following line ('inputs/test' being the folder where the settings files are stored)
+> **python3 main.py -s inputs/test**
 6. Behavior data will be in outputs folder as excel files
 
 > [!NOTE]
