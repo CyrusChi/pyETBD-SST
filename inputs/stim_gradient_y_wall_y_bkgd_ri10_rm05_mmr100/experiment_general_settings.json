@@ -10,7 +10,7 @@
 	"output_entropy_moving_avg_length":5,
 	"population_reset_between_schedules":false,
 	"experiment_timer_style":"generations",
-	"filename_modifier":"stim_general_yes_wall_y_bkgd_ri10_rm05_mmr100_",
+	"filename_modifier":"stim_general_yes_wall_yes_bkgd_ri10_rm05_mmr100_",
 	"reinforcement_context_magnitude_modifer_active":false,
 	"reinforcement_context_user_modifier":1,
 	"reinforcement_capture_length":10
