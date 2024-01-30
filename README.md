@@ -32,7 +32,7 @@ Keywords: ETBD, Stimulus Sampling Theory, Stimulus Control, Complexity Theory
 3. Create a folder named 'outputs'
 4. Run using the following line ('inputs/test' being the folder where the settings files are stored)
 > **python3 main.py -s inputs/test**
-6. Behavior data will be in outputs folder as excel files
+6. Behavior data will be in outputs folder as CSV files
 
 > [!NOTE]
 > This runs only one experiment at a time. A seperate batching method is needed in order to run multiple experiments. (TBD)
