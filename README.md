@@ -28,14 +28,19 @@ Keywords: ETBD, Stimulus Sampling Theory, Stimulus Control, Complexity Theory
 1. pip install the modules in [requirements.txt](requirements.txt)
 2. Modify settings in inputs
 3. Create a folder named 'outputs'
-4. Run using the following line ('inputs' being the folder where the settings are stored)
+4. Run using the following line ('inputs/Test' being the folder where the settings files are stored)
 > **python3 main.py -s inputs**
 6. Behavior data will be in outputs folder as excel files
+
+> [!NOTE]
+> This runs only one experiment at a time. A seperate batching method is needed in order to run multiple experiments. (TBD)
+
 
 ## Current Task List
 - [ ] Make experiment settings examples for the project's major components
 - [ ] Write up instructions for how to set up parameters manually
 - [ ] Make muti-processing a user setting
+- [ ] Make batch experiment file
 - [ ] add the original response to low parent condition as a parameter
 - [ ] add Entropy Observe all X percent
 - [ ] add punishment
