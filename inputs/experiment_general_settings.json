@@ -10,7 +10,7 @@
 	"output_entropy_moving_avg_length":5,
 	"population_reset_between_schedules":false,
 	"experiment_timer_style":"generations",
-	"filename_modifier":"Exp1-1_POP100_SE10_OBS_EN02",
+	"filename_modifier":"Test_POP100_SE10_OBS_EN02",
 	"reinforcement_context_magnitude_modifer_active":false,
 	"reinforcement_context_user_modifier":1,
 	"reinforcement_capture_length":10
