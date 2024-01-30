@@ -1,6 +1,6 @@
 { 
-	"repetitions":30,  
-	"default_generations_per_schedule":20500,
+	"repetitions":3,  
+	"default_generations_per_schedule":100,
 	"random_shuffle_schedule_x_and_after":null,
 	"data_output_type":"stream_output_per_repitition_3",
 	"output_entropy":true,
