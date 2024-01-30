@@ -1,6 +1,6 @@
 { 
-	"repetitions":3,  
-	"default_generations_per_schedule":100,
+	"repetitions":10,  
+	"default_generations_per_schedule":20500,
 	"random_shuffle_schedule_x_and_after":null,
 	"data_output_type":"stream_output_per_repitition_3",
 	"output_entropy":true,
@@ -10,7 +10,7 @@
 	"output_entropy_moving_avg_length":5,
 	"population_reset_between_schedules":false,
 	"experiment_timer_style":"generations",
-	"filename_modifier":"Exp1-1_POP100_SE10_OBS_EN02",
+	"filename_modifier":"Concurrent_2008_POP100_SE1_OBS_BASE",
 	"reinforcement_context_magnitude_modifer_active":false,
 	"reinforcement_context_user_modifier":1,
 	"reinforcement_capture_length":10
