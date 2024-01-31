@@ -30,49 +30,52 @@ Keywords: ETBD, Stimulus Sampling Theory, Stimulus Control, Complexity Theory
 ### See [instructions](settings_instructions.md) for how to set up or modify settings.
 
 
-### Example settings can be found in the inputs folder the following experiments:
+### Example settings can be found in the inputs folder for the following experiments:
 
-```
-RI RI Concurrent Schedules based on McDowell et al., 2008 
-with only neutral one stimulus element
+<details>
+<summary>See Experiments</summary>
+<br/>
 
-Folder: concurrent_se1_2008_rep
+1. RI RI Concurrent Schedules based on McDowell et al., 2008 
+    
+    with only neutral one stimulus element
+    >Folder: concurrent_se1_2008_rep
 
-RI RI Concurrent Schedules based on McDowell et al., 2008 
-with neutral 10 stimulus elements, 2% entropy-based observation, and 200 behavior population
+2. RI RI Concurrent Schedules based on McDowell et al., 2008 
 
-Folder: concurrent_se10_en02
+    with neutral 10 stimulus elements, 2% entropy-based observation, and 200 behavior population
+    >Folder: concurrent_se10_en02
 
-Multiple schedules with alternating RI 70 and Extinction, 
-with 5 red, 5 green, and 5 wall (i.e. neutral) stimuli, background reinforcement uses a RI 20, with 200 background targets
+3. Multiple schedules with alternating RI 70 and Extinction, 
+    
+    with 5 red, 5 green, and 5 wall (i.e. neutral) stimuli, background reinforcement uses a RI 20, with 200 background targets
+    >Folder: mult_sched_se_r5g5w5_bk_ri20
 
-Folder: mult_sched_se_r5g5w5_bk_ri20
+4. Multiple schedules with alternating RI 70 and Extinction, 
 
-Multiple schedules with alternating RI 70 and Extinction, 
-with 10 red, 10 green, and 0 wall (i.e. neutral) stimuli, background reinforcement uses a RI 20, with 200 background targets
+    with 10 red, 10 green, and 0 wall (i.e. neutral) stimuli, background reinforcement uses a RI 20, with 200 background targets
+    >Folder: mult_sched_se_r10g10w0_bk_ri20
 
-Folder: mult_sched_se_r10g10w0_bk_ri20
+5. Stimulus Gradient Experiments based on Guttman and Kalish 1956, 
 
-Stimulus Gradient Experiments based on Guttman and Kalish 1956, 
-with 5 red, 5 green, and 5 wall (i.e. neutral) stimuli, background reinforcement uses a RI 10, population mutation rate of 100
+    with 5 red, 5 green, and 5 wall (i.e. neutral) stimuli, background reinforcement uses a RI 10, population mutation rate of 100
+    >Folder: stim_gradient_x_wall_x_bkgd_ri10_rm05_mmr100
 
-Folder: stim_gradient_x_wall_x_bkgd_ri10_rm05_mmr100
+6. Stimulus Gradient Experiments based on Guttman and Kalish 1956, 
+    
+    with 10 red, 10 green, and 0 wall (i.e. neutral) stimuli, no background reinforcement, population mutation rate of 100
+    >Folder: stim_gradient_y_wall_y_bkgd_ri10_rm05_mmr100
 
-Stimulus Gradient Experiments based on Guttman and Kalish 1956, 
-with 10 red, 10 green, and 0 wall (i.e. neutral) stimuli, no background reinforcement, population mutation rate of 100
-
-Folder: stim_gradient_y_wall_y_bkgd_ri10_rm05_mmr100
-```
-
-
+</details>
 
 ## To run the program
 
 ### Download and run on a desktop
-1. pip install the modules in [requirements.txt](requirements.txt)
-2. Modify settings in inputs
-3. Create a folder named 'outputs'
-4. Run using the following line ('inputs/test' being the folder where the settings files are stored)
+1. download project files
+2. pip install the modules in [requirements.txt](requirements.txt)
+3. Modify or create new settings in inputs
+4. Create a folder named 'outputs'
+5. Run using the following line ('inputs/test' being an example of a folder where the settings files are stored)
 > **python3 main.py -s inputs/test**
 6. Behavior data will be in outputs folder as CSV files
 

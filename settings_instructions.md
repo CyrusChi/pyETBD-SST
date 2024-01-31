@@ -13,14 +13,16 @@ This document will take the reader through the process of setting up their own p
 
 # General Setup Information
 
-The pyETBD-SST settings can seem complicated. It has been designed in order to be more modular, and has very few build in settings that can't be changed.  
+pyETBD-SST has been designed to be modular, and has very few build in settings that can't be changed.  
 
 The pyETBD-SST has one necessary folder:
 >outputs
 
 A folder for inputs is useful but not necessary. 
 
-All settings are in JSON format, but this instruction set will not review the file format. Using an online JSON format checker is very helpful for finding errors. 
+All settings are in JSON format, but these instructions will not review the file format. 
+
+Using an online JSON format checker is very helpful for finding syntax errors in the parameter setup. 
 
 # Experiment General Settings
 
