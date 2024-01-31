@@ -11,8 +11,9 @@ Further discussion of the current state of this project can (eventually) be foun
 ## Table of Contents
 
 1. [Abstract](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#abstract)
-2. [To run the program](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#to-run-the-program)
-3. [Current Task List](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#current-task-list)
+2. [Creating Setting Instructions](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#creating-settings-instructions) 
+3. [To run the program](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#to-run-the-program)
+4. [Current Task List](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#current-task-list)
 
 ## Abstract
 
@@ -24,9 +25,50 @@ McDowell’s evolutionary theory of behavioral dynamics (ETBD) is a complexity t
 
 Keywords: ETBD, Stimulus Sampling Theory, Stimulus Control, Complexity Theory
 
+## Creating Settings Instructions
+
+### See [instructions](settings_instructions.md) for how to set up or modify settings.
+
+
+### Example settings can be found in the inputs folder the following experiments:
+
+```
+RI RI Concurrent Schedules based on McDowell et al., 2008 
+with only neutral one stimulus element
+
+Folder: concurrent_se1_2008_rep
+
+RI RI Concurrent Schedules based on McDowell et al., 2008 
+with neutral 10 stimulus elements, 2% entropy-based observation, and 200 behavior population
+
+Folder: concurrent_se10_en02
+
+Multiple schedules with alternating RI 70 and Extinction, 
+with 5 red, 5 green, and 5 wall (i.e. neutral) stimuli, background reinforcement uses a RI 20, with 200 background targets
+
+Folder: mult_sched_se_r5g5w5_bk_ri20
+
+Multiple schedules with alternating RI 70 and Extinction, 
+with 10 red, 10 green, and 0 wall (i.e. neutral) stimuli, background reinforcement uses a RI 20, with 200 background targets
+
+Folder: mult_sched_se_r10g10w0_bk_ri20
+
+Stimulus Gradient Experiments based on Guttman and Kalish 1956, 
+with 5 red, 5 green, and 5 wall (i.e. neutral) stimuli, background reinforcement uses a RI 10, population mutation rate of 100
+
+Folder: stim_gradient_x_wall_x_bkgd_ri10_rm05_mmr100
+
+Stimulus Gradient Experiments based on Guttman and Kalish 1956, 
+with 10 red, 10 green, and 0 wall (i.e. neutral) stimuli, no background reinforcement, population mutation rate of 100
+
+Folder: stim_gradient_y_wall_y_bkgd_ri10_rm05_mmr100
+```
+
 
 
 ## To run the program
+
+### Download and run on a desktop
 1. pip install the modules in [requirements.txt](requirements.txt)
 2. Modify settings in inputs
 3. Create a folder named 'outputs'
@@ -36,6 +78,8 @@ Keywords: ETBD, Stimulus Sampling Theory, Stimulus Control, Complexity Theory
 
 > [!NOTE]
 > This runs only one experiment at a time. A seperate batching method is needed in order to run multiple experiments. (TBD)
+
+### Running the program in github (TBD)
 
 
 ## Current Task List
