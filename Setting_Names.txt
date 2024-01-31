@@ -221,6 +221,7 @@ experiment schedule settings format:
 			}
 		}
 	}
+}
 	"schedule_list":
 	{
 		"schedule_set_no":
