@@ -661,6 +661,37 @@ The settings for the background generator are contained within the **'background
 <summary>See Parameters</summary>
 <br/>
 
+There are three categories of settings for each arranged schedule. There is the **"nondefault_schedule_generation_count"** (optional), the **"active_target_id_no"**, and the **"se_near_set"**.
+
+**"nondefault_schedule_generation_count"** : **integer**
+>This overrides the default number of generations in order to allow the schedule to have a different number of generations.
+
+**"active_target_id_no"** : \{ **integer** : \{**reinforcement specifications**\} \}
+>The active target id dictionary specificies which targets on the targets list are active during this schedule, based on the target id. The target id should be placed into the space labeled, **interger**. 
+
+<details>
+<summary>Reinforcement Specifications</summary>
+
+**"reinforcement_rate_type"** : **string**
+> The reinforcement type can be **'RI'** (random interval), **'RR'** (random ratio), **'FI'** (fixed interval), or **'FR'** (fixed ratio).
+Only one reinforcement type can be used at one time, for each target.
+
+**"reinforcement_rate"** : **value**
+> The reinforcement rate is measured in generations. The random schedules are randomized using an exponential distribution.
+
+**"reinforcer"** : **string**
+> The reinforcer is term that is defined in the organism_settings>reinforcer_magnitude_data. In the reinforcer magnitude data, this string is linked to a value, which is it's reinforcer magnitude, or the mean of the linear density function. As shown in the example above, if the "reinforcer":"pellet", then "pellet" must be in the reinforcer_magnitude_data, in the form "pellet":40.  
+
+</details>
+
+<br/>
+
+**"se_near_set"** : \[ **string\(s\)** \]
+>the se_near_set is a list of names of stimulus elements, that will be present in the local environment during the schedule. The names of stimulus elements must correspond to the names of stimulus elements in the stimulus_environment_settings.
+
+> [!IMPORTANT]
+> This parameter is the only one that uses a list, so it's syntax is different from the typical dictionary syntax of the other parameters.
+
 </details>
 
 
@@ -678,7 +709,6 @@ The settings for the background generator are contained within the **'background
 TBD
 
 </details>
-<br/>
 
 ## Parameters
 
@@ -700,7 +730,6 @@ TBD
 TBD
 
 </details>
-<br/>
 
 ## Parameters
 
@@ -722,7 +751,6 @@ TBD
 TBD
 
 </details>
-<br/>
 
 ## Parameters
 
