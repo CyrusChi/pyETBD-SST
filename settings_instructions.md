@@ -24,6 +24,8 @@ All settings are in JSON format, but these instructions will not review the file
 
 Using an online JSON format checker is very helpful for finding syntax errors in the parameter setup. 
 
+<br/>
+
 # Experiment General Settings
 
 
@@ -65,7 +67,6 @@ Using an online JSON format checker is very helpful for finding syntax errors in
 	"reinforcement_capture_length":10
 \}
 </details>
-<br/>
 
 ## Parameters
 
@@ -130,7 +131,7 @@ Extra information can be added to output based on the following settings:
 >Output will contain columns for window length, window length goal, rc difference, and the selection modifier percentage
 
 > [!WARNING]
-> Only use if the Procdure>selection_modifier type: "reinforcement_context_kernel" is specified! 
+> Only use if the procdure_settings>selection_modifier_type: "reinforcement_context_kernel" is specified! 
 
 **"output_background"** : **true** or **false**
 >Adds columns to output CSV for background target behavior emitted and reinforcement recieved
@@ -162,15 +163,16 @@ For a filename_modifier : 'Exp1-2_POP200_BKGD_RI01_RM20_'
 The output file : 'Exp1-2_POP200_BKGD_RI01_RM20_rep0_allschedules.csv' 
 
 **"reinforcement_context_magnitude_modifer_active"** : **true** or **false**
->Untested
+>Untested, Keep 'false'
 
 **"reinforcement_context_user_modifier"** : **(interger value)**
->Untested
+>Untested, Keep 'false'
 
 **"reinforcement_capture_length"** : **(interger value)**
->Untested
+>Untested, Keep 'false'
 
 </details>
+<br/>
 <br/>
 
 # Experiment Schedule Settings
@@ -306,24 +308,364 @@ The output file : 'Exp1-2_POP200_BKGD_RI01_RM20_rep0_allschedules.csv'
 
 	}
 
-}
-        
-    
+} 
 
 
 </details>
-<br/>
 
 ## Parameters
 
 <details>
 <summary>List of Parameters</summary>
 <br/>
- 
 
+### General Format
+
+There two groups over arching groups within the experiment schedule settings, and those are the **'target_list'** and the **'schedule_list'**. (Although these are called lists, they are mostly written in a nested dictionary format following the JSON specifications)
+
+Within the **'target_list'**, there is another dictionary called **'target_id'**. (the target_id dictionary is the only item in target list)
+
+Each target id is identified by it's key, which is a integer starting from the number 1. The dictionary value is another dictionary containing all the parameters associated with the target id. 
+
+
+
+Within the **'schdule_list'**, there is another dictionary called **'schedule_set_no'**. (the schedule_set_no dictionary is the only item in schedule list)
+
+Each schedule set number is identified by it's key, which is a integer starting from the number 1. The dictionary value is another dictionary containing all the parameters associated with the schedule. 
+
+### Target List Parameters
+
+<details>
+<summary>See Parameters</summary>
+<br/>
+
+**"target_type"** : **'string'**
+>There are currently two major target types (**'primary'** and **'background'**) with their own sub parameters. The type of target primarily effects the output style, but it also impacts how random background targets are generated using the **'background_generator'**. Primary targets are always reported in the output, while background target data is optional. 
+
+<details>
+<summary>'primary' target</summary>
+<br/>
+
+**'primary'**
+>Primary targets are meant to represent the targets typically identified by an experimenter in their experiment, like a key, lever, or switch. Their range of operation is defined by the highest and lowest value in terms of the phenotype space. 
+
+Subparameters:
+
+**"target_high"** : **(interger value)**
+>High end of the phenotype space for the target (inclusive)
+
+**"target_low"** : **(interger value)**
+>Low end of the phenotype space for the target (inclusive)
+
+**"reward_continvency_type"** : **'string'**
+>Untested, do not use. May be omitted.
+
+</details>
+<br/>
+
+<details>
+<summary>'background' target</summary>
+<br/>
+
+**'background'**
+>Background targets are meant to represent the targets typically _not_ identified by an experimenter in their experiment. This represents all kinds of distractions, or other rewards that are not typically controlled within an experiment.
+
+There are currently two styles of background targets: **'high_low'** and **'background_generator'**.
+
+The background type: **'background_generator'** should be placed last on the list of target ids if more than one target is generated.
+
+
+<details>
+<summary>'background_style' : 'high_low'</summary>
+<br/>
+
+This style the same high and low subparameters as the 'primary' target.
+
+Subparameters:
+**"target_high"** : **(interger value)**
+>High end of the phenotype space for the target (inclusive)
+
+**"target_low"** : **(interger value)**
+>Low end of the phenotype space for the target (inclusive)
+
+</details>
+<br/>
+
+<details>
+<summary>'background_style' : 'background_generator'</summary>
+<br/>
+
+This style is designed to pick background targets following the subparameters listed in the settings file.  
+
+Each target will get it's own target id, starting from the target id of the generator, and increasing by one for each background target.
+
+> [!CAUTION]
+> If the settings chosen for the background are too stringent, the program will stop itself if there are not enough eligible background targets. Since the background targets are chosen randomly, this can result in some repititions working fine while others stop due to not having enough background targets. 
+
+The settings for the background generator are contained within the **'background_generator_settings'**.
+
+**'generator_type'** : **'string'**
+> There are multiple generator types, and each one has it's own subsettings. 
+
+**'random_nonsequential_post_screening'**
+> Creates one or more background classes that are non-sequential and chosen at random. 
+
+<details>
+<summary>See subparameters</summary>
+<br/>
+
+**"screen_out_equal_or_less"** : **interger** or **null**
+>Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> With two, 40 phenotype target classes, a screen out larger than one can make the remaining space too small for a 200 digit background target class.
+
+**"remove_avg_hamming_equal_or_less"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have an average hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"remove_std_hamming_equal_or_greater"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a standard deviation of it's hamming distances greater than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> The max standard deviation for a 10 digit genotype is around 4.2.
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"removal_function_type"** : **string** ('percentage' or 'value')
+> Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
+
+**"number_of_nonsequential_targets"** : **interger** 
+> The number of targets to be created. This parameter is non-sequential target class specific.
+
+**"nonsequential_background_target_size"** : **interger** 
+> The number of digits in one target class. This parameter is non-sequential target class specific.
+
+</details>
+<br/>
+
+**'max_mean_nonsequential_post_screening'**
+> Creates one or more background classes that are non-sequential and are chosen based on average hamming distance from the primary targets, going from largest to smallest
+
+<details>
+<summary>See subparameters</summary>
+<br/>
+
+**"screen_out_equal_or_less"** : **interger** or **null**
+>Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> With two, 40 phenotype target classes, a screen out larger than one can make the remaining space too small for a 200 digit background target class.
+
+**"remove_avg_hamming_equal_or_less"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have an average hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"remove_std_hamming_equal_or_greater"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a standard deviation of it's hamming distances greater than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> The max standard deviation for a 10 digit genotype is around 4.2.
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"removal_function_type"** : **string** ('percentage' or 'value')
+> Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
+
+**"number_of_nonsequential_targets"** : **interger** 
+> The number of targets to be created. This parameter is non-sequential target class specific.
+
+**"nonsequential_background_target_size"** : **interger** 
+> The number of digits in one target class. This parameter is non-sequential target class specific.
+
+</details>
+<br/>
+
+**'max_mean_std_nonsequential_post_screening'**
+> Creates one or more background classes that are non-sequential and are chosen based on average hamming distance from the primary targets, going from largest to smallest. If multple phenotypes have the same average hamming distance, they are additionally sorted from smallest standard deviation to largest, and picked in that order.
+
+<details>
+<summary>See subparameters</summary>
+<br/>
+
+**"screen_out_equal_or_less"** : **interger** or **null**
+>Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> With two, 40 phenotype target classes, a screen out larger than one can make the remaining space too small for a 200 digit background target class.
+
+**"remove_avg_hamming_equal_or_less"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have an average hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"remove_std_hamming_equal_or_greater"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a standard deviation of it's hamming distances greater than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> The max standard deviation for a 10 digit genotype is around 4.2.
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"removal_function_type"** : **string** ('percentage' or 'value')
+> Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
+
+**"number_of_nonsequential_targets"** : **interger** 
+> The number of targets to be created. This parameter is non-sequential target class specific.
+
+**"nonsequential_background_target_size"** : **interger** 
+> The number of digits in one target class. This parameter is non-sequential target class specific.
+
+</details>
+<br/>
+
+
+**'max_mean_continuous_post_screening'**
+> Creates one or more background classes that are continous in phenotype space and are chosen based on average hamming distance from the primary targets, going from largest to smallest
+
+<details>
+<summary>See subparameters</summary>
+<br/>
+
+**"screen_out_equal_or_less"** : **interger** or **null**
+>Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> With two, 40 phenotype target classes, a screen out larger than one can make the remaining space too small for a 200 digit background target class.
+
+**"remove_avg_hamming_equal_or_less"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have an average hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"remove_std_hamming_equal_or_greater"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a standard deviation of it's hamming distances greater than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> The max standard deviation for a 10 digit genotype is around 4.2.
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"removal_function_type"** : **string** ('percentage' or 'value')
+> Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
+
+**"number_of_continuous_targets"** : **interger** 
+> The number of targets to be created. This parameter is continous target class specific.
+
+**"continuous_background_target_length"** : **interger** 
+> The number of continuous digits in one target class. This parameter is continous target class specific.
+
+</details>
+<br/>
+
+**'max_mean_std_continuous_post_screening'**
+> Creates one or more background classes that are continous in phenotype space and are chosen based on average hamming distance from the primary targets, going from largest to smallest. If multple phenotypes have the same average hamming distance, they are additionally sorted from smallest standard deviation to largest, and picked in that order.
+
+<details>
+<summary>See subparameters</summary>
+<br/>
+
+**"screen_out_equal_or_less"** : **interger** or **null**
+>Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> With two, 40 phenotype target classes, a screen out larger than one can make the remaining space too small for a 200 digit background target class.
+
+**"remove_avg_hamming_equal_or_less"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have an average hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"remove_std_hamming_equal_or_greater"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a standard deviation of it's hamming distances greater than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> The max standard deviation for a 10 digit genotype is around 4.2.
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"removal_function_type"** : **string** ('percentage' or 'value')
+> Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
+
+**"number_of_continuous_targets"** : **interger** 
+> The number of targets to be created. This parameter is continous target class specific.
+
+**"continuous_background_target_length"** : **interger** 
+> The number of continuous digits in one target class. This parameter is continous target class specific.
+
+</details>
+<br/>
+
+**'random_continuous_post_screening'**
+> Creates one or more background classes that are continous in phenotype space and chosen at random. 
+
+<details>
+<summary>See subparameters</summary>
+
+**"screen_out_equal_or_less"** : **interger** or **null**
+>Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> With two, 40 phenotype target classes, a screen out larger than one can make the remaining space too small for a 200 digit background target class.
+
+**"remove_avg_hamming_equal_or_less"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have an average hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"remove_std_hamming_equal_or_greater"** : **number** or **null**
+> Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a standard deviation of it's hamming distances greater than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
+
+> [!NOTE]
+> The max standard deviation for a 10 digit genotype is around 4.2.
+
+> [!IMPORTANT]
+> This parameter requires "removal_function_type" to be set to work.
+
+**"removal_function_type"** : **string** ('percentage' or 'value')
+> Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
+
+**"number_of_continuous_targets"** : **interger** 
+> The number of targets to be created. This parameter is continous target class specific.
+
+**"continuous_background_target_length"** : **interger** 
+> The number of continuous digits in one target class. This parameter is continous target class specific.
+
+<br/>
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+
+
+### Schedule List Parameters
+
+<details>
+<summary>See Parameters</summary>
+<br/>
+
+</details>
 
 
 </details>
+<br/>
 <br/>
 
 # Organism Settings
@@ -346,6 +688,7 @@ TBD
 
 </details>
 <br/>
+<br/>
 
 # Procedure Settings
 
@@ -366,6 +709,7 @@ TBD
 <br/>
 
 </details>
+<br/>
 <br/>
 
 # Stimulus Environment Settings
