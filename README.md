@@ -89,8 +89,8 @@ Keywords: ETBD, Stimulus Sampling Theory, Stimulus Control, Complexity Theory
 ## Current Task List
 - [x] Make experiment settings examples for the project's major components
 - [ ] Write up instructions for how to set up parameters manually
-- [ ] Make batch experiment file
 - [ ] Make muti-processing a user setting
+- [ ] Make batch experiment file
 - [ ] Clean up code + add comments
 - [ ] add the original response to low parent condition as a parameter
 - [ ] add Entropy Observe all X percent
