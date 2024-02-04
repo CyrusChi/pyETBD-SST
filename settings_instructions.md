@@ -148,7 +148,7 @@ Extra information can be added to output based on the following settings:
 > [!IMPORTANT]
 > This can expand the output file size dramaticly depending on the number of behaviors in a population. 
 
-**"output_entropy_moving_avg_length"** : **(interger value)**
+**"output_entropy_moving_avg_length"** : **(integer value)**
 >Not functional with 'stream_output_per_repitition_3'
 
 **"population_reset_between_schedules"** : **true** or **false**
@@ -165,10 +165,10 @@ The output file : 'Exp1-2_POP200_BKGD_RI01_RM20_rep0_allschedules.csv'
 **"reinforcement_context_magnitude_modifer_active"** : **true** or **false**
 >Untested, Keep 'false'
 
-**"reinforcement_context_user_modifier"** : **(interger value)**
+**"reinforcement_context_user_modifier"** : **(integer value)**
 >Untested, Keep 'false'
 
-**"reinforcement_capture_length"** : **(interger value)**
+**"reinforcement_capture_length"** : **(integer value)**
 >Untested, Keep 'false'
 
 </details>
@@ -351,10 +351,10 @@ Each schedule set number is identified by it's key, which is a integer starting 
 
 Subparameters:
 
-**"target_high"** : **(interger value)**
+**"target_high"** : **(integer value)**
 >High end of the phenotype space for the target (inclusive)
 
-**"target_low"** : **(interger value)**
+**"target_low"** : **(integer value)**
 >Low end of the phenotype space for the target (inclusive)
 
 **"reward_continvency_type"** : **'string'**
@@ -382,10 +382,10 @@ The background type: **'background_generator'** should be placed last on the lis
 This style the same high and low subparameters as the 'primary' target.
 
 Subparameters:
-**"target_high"** : **(interger value)**
+**"target_high"** : **(integer value)**
 >High end of the phenotype space for the target (inclusive)
 
-**"target_low"** : **(interger value)**
+**"target_low"** : **(integer value)**
 >Low end of the phenotype space for the target (inclusive)
 
 </details>
@@ -414,7 +414,7 @@ The settings for the background generator are contained within the **'background
 <summary>See subparameters</summary>
 <br/>
 
-**"screen_out_equal_or_less"** : **interger** or **null**
+**"screen_out_equal_or_less"** : **integer** or **null**
 >Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
 
 > [!NOTE]
@@ -438,10 +438,10 @@ The settings for the background generator are contained within the **'background
 **"removal_function_type"** : **string** ('percentage' or 'value')
 > Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
 
-**"number_of_nonsequential_targets"** : **interger** 
+**"number_of_nonsequential_targets"** : **integer** 
 > The number of targets to be created. This parameter is non-sequential target class specific.
 
-**"nonsequential_background_target_size"** : **interger** 
+**"nonsequential_background_target_size"** : **integer** 
 > The number of digits in one target class. This parameter is non-sequential target class specific.
 
 </details>
@@ -454,7 +454,7 @@ The settings for the background generator are contained within the **'background
 <summary>See subparameters</summary>
 <br/>
 
-**"screen_out_equal_or_less"** : **interger** or **null**
+**"screen_out_equal_or_less"** : **integer** or **null**
 >Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
 
 > [!NOTE]
@@ -478,10 +478,10 @@ The settings for the background generator are contained within the **'background
 **"removal_function_type"** : **string** ('percentage' or 'value')
 > Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
 
-**"number_of_nonsequential_targets"** : **interger** 
+**"number_of_nonsequential_targets"** : **integer** 
 > The number of targets to be created. This parameter is non-sequential target class specific.
 
-**"nonsequential_background_target_size"** : **interger** 
+**"nonsequential_background_target_size"** : **integer** 
 > The number of digits in one target class. This parameter is non-sequential target class specific.
 
 </details>
@@ -494,7 +494,7 @@ The settings for the background generator are contained within the **'background
 <summary>See subparameters</summary>
 <br/>
 
-**"screen_out_equal_or_less"** : **interger** or **null**
+**"screen_out_equal_or_less"** : **integer** or **null**
 >Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
 
 > [!NOTE]
@@ -518,10 +518,10 @@ The settings for the background generator are contained within the **'background
 **"removal_function_type"** : **string** ('percentage' or 'value')
 > Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
 
-**"number_of_nonsequential_targets"** : **interger** 
+**"number_of_nonsequential_targets"** : **integer** 
 > The number of targets to be created. This parameter is non-sequential target class specific.
 
-**"nonsequential_background_target_size"** : **interger** 
+**"nonsequential_background_target_size"** : **integer** 
 > The number of digits in one target class. This parameter is non-sequential target class specific.
 
 </details>
@@ -535,7 +535,7 @@ The settings for the background generator are contained within the **'background
 <summary>See subparameters</summary>
 <br/>
 
-**"screen_out_equal_or_less"** : **interger** or **null**
+**"screen_out_equal_or_less"** : **integer** or **null**
 >Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
 
 > [!NOTE]
@@ -559,10 +559,10 @@ The settings for the background generator are contained within the **'background
 **"removal_function_type"** : **string** ('percentage' or 'value')
 > Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
 
-**"number_of_continuous_targets"** : **interger** 
+**"number_of_continuous_targets"** : **integer** 
 > The number of targets to be created. This parameter is continous target class specific.
 
-**"continuous_background_target_length"** : **interger** 
+**"continuous_background_target_length"** : **integer** 
 > The number of continuous digits in one target class. This parameter is continous target class specific.
 
 </details>
@@ -575,7 +575,7 @@ The settings for the background generator are contained within the **'background
 <summary>See subparameters</summary>
 <br/>
 
-**"screen_out_equal_or_less"** : **interger** or **null**
+**"screen_out_equal_or_less"** : **integer** or **null**
 >Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
 
 > [!NOTE]
@@ -599,10 +599,10 @@ The settings for the background generator are contained within the **'background
 **"removal_function_type"** : **string** ('percentage' or 'value')
 > Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
 
-**"number_of_continuous_targets"** : **interger** 
+**"number_of_continuous_targets"** : **integer** 
 > The number of targets to be created. This parameter is continous target class specific.
 
-**"continuous_background_target_length"** : **interger** 
+**"continuous_background_target_length"** : **integer** 
 > The number of continuous digits in one target class. This parameter is continous target class specific.
 
 </details>
@@ -614,7 +614,7 @@ The settings for the background generator are contained within the **'background
 <details>
 <summary>See subparameters</summary>
 
-**"screen_out_equal_or_less"** : **interger** or **null**
+**"screen_out_equal_or_less"** : **integer** or **null**
 >Comparies the binary values of all possible background targets with the binary values of each phenotype of the primary targets and calculates the hamming distance. Removes all phenotypes that have a hamming distance less than or equal to the value set here from becoming a background target. Set value to **null** to turn off feature. 
 
 > [!NOTE]
@@ -638,10 +638,10 @@ The settings for the background generator are contained within the **'background
 **"removal_function_type"** : **string** ('percentage' or 'value')
 > Allows **"remove_avg_hamming_equal_or_less"** and/or **"remove_std_hamming_equal_or_greater"** to function as a percentage of the range for that parameter or a flat value.
 
-**"number_of_continuous_targets"** : **interger** 
+**"number_of_continuous_targets"** : **integer** 
 > The number of targets to be created. This parameter is continous target class specific.
 
-**"continuous_background_target_length"** : **interger** 
+**"continuous_background_target_length"** : **integer** 
 > The number of continuous digits in one target class. This parameter is continous target class specific.
 
 <br/>
@@ -667,7 +667,7 @@ There are three categories of settings for each arranged schedule. There is the 
 >This overrides the default number of generations in order to allow the schedule to have a different number of generations.
 
 **"active_target_id_no"** : \{ **integer** : \{**reinforcement specifications**\} \}
->The active target id dictionary specificies which targets on the targets list are active during this schedule, based on the target id. The target id should be placed into the space labeled, **interger**. 
+>The active target id dictionary specificies which targets on the targets list are active during this schedule, based on the target id. The target id should be placed into the space labeled, **integer**. 
 
 <details>
 <summary>Reinforcement Specifications</summary>
@@ -706,7 +706,23 @@ Only one reinforcement type can be used at one time, for each target.
 <details>
 <summary>Example Organism Settings File</summary>
 
-TBD
+\{  
+
+	"population_size":200,
+	"number_of_binary_digits":10,
+	"percent_replace":100,
+	"mutation_rate":10,
+	"reinforcer_magnitude_data":  
+
+	{  
+
+			"pellet":5,
+			"scratch":40,
+			"weak-pellet":60
+
+	}  
+
+\}
 
 </details>
 
@@ -715,6 +731,21 @@ TBD
 <details>
 <summary>List of Parameters</summary>
 <br/>
+
+**"population_size"** : **integer**
+> Population size sets the number of behaviors in the population. Typical default is 100 for most ETBD experiments. 200 behaviors or above is recommended for experiments that involve more than one stimulus elements.
+
+**"number_of_binary_digits"** : **integer**
+> This setting determines the number of digits in the genotype and the total range of the phenoype space. The number used in the standard experimental set up is 10, which creates a phenotype range of 1024. If the number of digits is 11, then the phenotype range would be 2048. 
+
+**"percent_replace"** : **integer** (between 0 and 100)
+> The value sets the default percentage of the behavior population that is replaced by new child behaviors. This can be modified by process settings during the experiment, like the selection modifier. 
+
+**"mutation_rate"** : **integer**
+> This value sets the percentage of the new child behaviors (created during recombination) that undergo mutation. 
+
+**"reinforcer_magnitude_data"** : \{ **string** : **value** \}
+> This setting is designed to mirror how an organism might value a particular kind of reinforcer. In the example settings above, the "pellet" is highly valued and consequently has a value of "5". The reinforcer magnitude data is linked to the experiment schedule settings through the **string** assigned here. The **value** is the mean of the selection densitiy function. The lower the reinforcer magnitude, the closer the parent behaviors (created during the selection step) will be to the emitted behavior.
 
 </details>
 <br/>
@@ -727,7 +758,36 @@ TBD
 <details>
 <summary>Example Procedure Settings File</summary>
 
-TBD
+{
+
+	"observation_type":"observe5_low_entropy_x_percent",  
+	"observation_entropy_percentage":2,  
+	"emission_type":"random_emission",  
+	"selection_loop_type":"all_se_viewed_w_se_modifier",  
+	"unrewarded_parent_selection_type":"random_fitness_simplifed_njit",  
+	"rewarded_parent_selection_type":"linear_roulette_function_njit",  
+	"linear_under_min_behaviors_selection_type":"random_fitness_simplifed_njit",  
+	"linear_selection_min_behaviors":2,  
+	"recombination_type":"bitwise_recombination_njit",  
+	"mutation_type":"bitflip_by_individual_min1_every_x",  
+	"mutation_modifier_parameters":  
+
+		{  
+        	"mutation_min_every_x_modifier":100  
+		},  
+
+	"rewarded_selection_landscape_type":"circular_landscape",  
+	"unrewarded_selection_landscape_type":"none",  
+	"selection_modifier_type":"power_function_entropy_modifier",  
+	"selection_modifier_parameters":  
+
+		{  
+			"entropy_power_conversion_a":0.0625,  
+			"entropy_power_conversion_b":2,  
+			"selection_se_entropy_mod_lower_limit":0  
+		}  
+		
+}  
 
 </details>
 
