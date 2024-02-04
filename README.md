@@ -14,6 +14,7 @@ Further discussion of the current state of this project can (eventually) be foun
 2. [Creating Setting Instructions](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#creating-settings-instructions) 
 3. [To run the program](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#to-run-the-program)
 4. [Current Task List](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#current-task-list)
+5. [References](https://github.com/CyrusChi/pyETBD-SST/edit/main/README.md#references)
 
 ## Abstract
 
@@ -96,4 +97,10 @@ Keywords: ETBD, Stimulus Sampling Theory, Stimulus Control, Complexity Theory
 - [ ] add punishment
 - [ ] add durability weights
 - [ ] add selectivity function
+
+### References
+
+McDowell, J. J (2004). A computational model of selection by consequences. Journal of the Experimental Analysis of Behavior, 81(3), 297-317. [https://doi.org/10.1901/jeab.2004.81-297](https://doi.org/10.1901/jeab.2004.81-297)
+
+McDowell, J. J (2019), On the current status of the evolutionary theory of behavior dynamics. Journal of the Experimental Analysis of Behavior, 111: 130-145. [https://doi.org/10.1002/jeab.495](https://doi.org/10.1002/jeab.495)
  
