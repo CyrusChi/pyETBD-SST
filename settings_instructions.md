@@ -821,6 +821,51 @@ Only one reinforcement type can be used at one time, for each target.
 <br/>
 <br/>
 
+**"observation_type"** : **string**
+> TBD
+
+**"observation_entropy_percentage"** : **string**
+> TBD
+
+**"emission_type"** : **string**
+> TBD
+
+**"selection_loop_type"** : **string**
+> TBD
+
+**"selection_modifier_type"** : **string**
+> TBD
+
+<!-- Selection Modifier type start -->
+<details>
+<summary>selection modifier types</summary>
+<br/>
+
+<details>
+<summary>'power_function_entropy_modifier'</summary>
+<br/>
+> TBD
+
+**"selection_modifier_parameters"** : \{ **strings**:**values**,\.\.\. \}
+> TBD
+
+'entropy_power_conversion_a':**value**
+> TBD
+
+'entropy_power_conversion_b':**value**
+> TBD
+ 
+"selection_se_entropy_mod_lower_limit":**value**
+> TBD
+
+</details>
+<br/>
+<br/>
+
+</details>
+<br/>
+<br/>
+<!-- Selection Modifier type end -->
 
 </details>
 <br/>
