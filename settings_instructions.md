@@ -802,6 +802,26 @@ Only one reinforcement type can be used at one time, for each target.
 <summary>List of Parameters</summary>
 <br/>
 
+<details>
+<summary>ETBD Process Flowchart</summary>
+<br/>
+
+![modified overall ETBD flow chart](/images/Process_Flow_Chart_JPG2.jpg)
+
+</details>
+<br/>
+
+<details>
+<summary>Selection Step Flowchart</summary>
+<br/>
+
+![modified selection loop flow chart](/images/Selection_Loop_JPG.jpg)
+
+</details>
+<br/>
+<br/>
+
+
 </details>
 <br/>
 <br/>
