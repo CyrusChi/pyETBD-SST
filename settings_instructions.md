@@ -762,22 +762,11 @@ Only one reinforcement type can be used at one time, for each target.
 
 	"observation_type":"observe5_low_entropy_x_percent",  
 	"observation_entropy_percentage":2,  
+
 	"emission_type":"random_emission",  
-	"selection_loop_type":"all_se_viewed_w_se_modifier",  
-	"unrewarded_parent_selection_type":"random_fitness_simplifed_njit",  
-	"rewarded_parent_selection_type":"linear_roulette_function_njit",  
-	"linear_under_min_behaviors_selection_type":"random_fitness_simplifed_njit",  
-	"linear_selection_min_behaviors":2,  
-	"recombination_type":"bitwise_recombination_njit",  
-	"mutation_type":"bitflip_by_individual_min1_every_x",  
-	"mutation_modifier_parameters":  
 
-		{  
-        	"mutation_min_every_x_modifier":100  
-		},  
+	"selection_loop_type":"all_se_viewed_w_se_modifier", 
 
-	"rewarded_selection_landscape_type":"circular_landscape",  
-	"unrewarded_selection_landscape_type":"none",  
 	"selection_modifier_type":"power_function_entropy_modifier",  
 	"selection_modifier_parameters":  
 
@@ -785,8 +774,24 @@ Only one reinforcement type can be used at one time, for each target.
 			"entropy_power_conversion_a":0.0625,  
 			"entropy_power_conversion_b":2,  
 			"selection_se_entropy_mod_lower_limit":0  
-		}  
+		},  
 		
+	"rewarded_selection_landscape_type":"circular_landscape",  
+	"rewarded_parent_selection_type":"linear_roulette_function_njit", 	
+	"linear_under_min_behaviors_selection_type":"random_fitness_simplifed_njit",  
+	"linear_selection_min_behaviors":2,  
+
+	"unrewarded_selection_landscape_type":"none", 	
+	"unrewarded_parent_selection_type":"random_fitness_simplifed_njit",  
+ 
+	"recombination_type":"bitwise_recombination_njit",  
+	"mutation_type":"bitflip_by_individual_min1_every_x",  
+	"mutation_modifier_parameters":  
+
+		{  
+        	"mutation_min_every_x_modifier":100  
+		} 
+
 }  
 
 </details>
