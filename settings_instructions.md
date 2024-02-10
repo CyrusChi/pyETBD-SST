@@ -752,6 +752,7 @@ Only one reinforcement type can be used at one time, for each target.
 <br/>
 
 # Procedure Settings
+>The procedure settings allow the user to design which specific process steps that the user would like the ETBD to go through. The order in which processes occur is already preset. 
 
 ## Example
 
@@ -796,11 +797,8 @@ Only one reinforcement type can be used at one time, for each target.
 
 </details>
 
-## Parameters
-
-<details>
-<summary>List of Parameters</summary>
-<br/>
+## Flowcharts
+>The ETBD process flowchart shows the overall sequence of the ETBD, with the processes marked in rectangular boxes down the center. The Selection step flowchart further breaks down the selection step, with the user selected processes in rectangular boxes with white backgrounds. 
 
 <details>
 <summary>ETBD Process Flowchart</summary>
@@ -818,11 +816,40 @@ Only one reinforcement type can be used at one time, for each target.
 ![modified selection loop flow chart](/images/Selection_Loop_JPG.jpg)
 
 </details>
-<br/>
+
+## Parameters
+
+<details>
+<summary>List of Parameters</summary>
 <br/>
 
 **"observation_type"** : **string**
 > TBD
+
+<details>
+<summary>List of Observation types</summary>
+<br/>
+
+'observe_up_to_five'
+> During the observation step, randomly select up to five stimulus elements from the local environment.
+
+'observe_up_to_three'
+> During the observation step, randomly select up to three stimulus elements from the local environment.
+
+'observe5_low_entropy_5percent'
+> During the observation step, randomly select up to five stimulus elements from the local environment. Then calculate the entropy for all five linked behavioral populations for the selected stimulus elements. Returns the stimulus element with the lowest entropy and any other stimulus element with an entropy\(x\) whose entropy is within 5% of the value of stimulus element with the lowest entropy. 
+
+'observe5_low_entropy_2pop'
+> TBD
+
+'observe5_low_entropy_x_percent'
+> TBD
+
+'observe5_inverse_proportion_entropy'
+> TBD
+
+</details>
+<br/>
 
 **"observation_entropy_percentage"** : **string**
 > TBD
@@ -841,6 +868,7 @@ Only one reinforcement type can be used at one time, for each target.
 <summary>selection modifier types</summary>
 <br/>
 
+<!-- power_function_entropy_modifier start -->
 <details>
 <summary>'power_function_entropy_modifier'</summary>
 <br/>
@@ -861,6 +889,7 @@ Only one reinforcement type can be used at one time, for each target.
 </details>
 <br/>
 <br/>
+<!-- power_function_entropy_modifier end -->
 
 </details>
 <br/>
