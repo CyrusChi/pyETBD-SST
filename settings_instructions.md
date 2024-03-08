@@ -824,7 +824,7 @@ Only one reinforcement type can be used at one time, for each target.
 <br/>
 
 **"observation_type"** : **string**
-> TBD
+> How the AO interacts with the local environment. See list of observation types.
 
 <details>
 <summary>List of Observation types</summary>
@@ -840,25 +840,49 @@ Only one reinforcement type can be used at one time, for each target.
 > During the observation step, randomly select up to five stimulus elements from the local environment. Then calculate the entropy for all five linked behavioral populations for the selected stimulus elements. Returns the stimulus element with the lowest entropy and any other stimulus element with an entropy\(x\) whose entropy is within 5% of the value of stimulus element with the lowest entropy. 
 
 'observe5_low_entropy_2pop'
-> TBD
+> During the observation step, randomly select up to five stimulus elements from the local environment. Then calculate the entropy for all five linked behavioral populations for the selected stimulus elements. Returns the two stimulus elements with the lowest entropies.
 
 'observe5_low_entropy_x_percent'
-> TBD
+> During the observation step, randomly select up to five stimulus elements from the local environment. Then calculate the entropy for all five linked behavioral populations for the selected stimulus elements. Returns the stimulus element with the lowest entropy and any other stimulus element with an entropy\(x\) whose entropy is within a user defined percentage of the value of stimulus element with the lowest entropy. The percentage is defined using the 'observation_entropy_percentage' setting. 
 
 'observe5_inverse_proportion_entropy'
-> TBD
+> During the observation step, randomly select up to five stimulus elements from the local environment. The inverse entropies of the linked behavioral populations are calculated. The inverse entropy = 4.644 - original entropy. \(The value 4.644 was chosen because it was the max entropy out of 100k samples. Each sample was a randomly generated 200 behavior population using a 10-bit genotype.\) The inverse entropies are normalized and the probability of a stimulus element being chosen is weighted by the normalized inverse entropy. Only one stimulus element is chosen. 
 
 </details>
 <br/>
 
-**"observation_entropy_percentage"** : **string**
-> TBD
+**"observation_entropy_percentage"** : **positive integer**
+> The value sets the upper end of the range of entropies that can be observed at the same time as stimulus element with the lowest entropy. For example, if value is 10%, and the lowest entropy is 1.00, then any stimulus element with a linked behavioral population with an entropy less than 1.10 will be selected as one of the observed stimulus elements. 
+
+> [!NOTE]
+> Works only when the observation type = 'observe5_low_entropy_x_percent'
 
 **"emission_type"** : **string**
-> TBD
+> 'random_emission' is the only current emission type. One linked behavior population will be chosen at random from the observed stimulus elements. From the chosen linked behavior population, one behavior will be emitted at random.
 
 **"selection_loop_type"** : **string**
 > TBD
+
+<!-- selection_loop_type start -->
+<details>
+<summary>selection loop types</summary>
+<br/>
+
+'all_se_viewed'
+> TBD
+
+'all_se_viewed_selection_se_entropy_modified' (deactivated)
+> TBD
+
+'all_se_viewed_selection_se_time_modified'
+> TBD
+
+'all_se_viewed_w_se_modifier'
+> TBD
+
+</details>
+<br/>
+<!-- selection_loop_type end -->
 
 **"selection_modifier_type"** : **string**
 > TBD
@@ -891,14 +915,126 @@ Only one reinforcement type can be used at one time, for each target.
 <br/>
 <!-- power_function_entropy_modifier end -->
 
+<!-- reinforcement_context_kernel start -->
+<details>
+<summary>'reinforcement_context_kernel'</summary>
+<br/>
+> TBD
+
+**"selection_modifier_parameters"** : \{ **strings**:**values**,\.\.\. \}
+> TBD
+
+**"starting_selection_modifier"**:100,
+> TBD
+
+**"max_rc_stream_length"**:200,
+> TBD
+
+**"window_no_change_boundary_lower"**:0.1,
+> TBD
+
+**"window_no_change_boundary_higher"**:0.3,
+> TBD
+
+**"selection_percentage_min"**:1,
+> TBD
+
+**"selection_boundary"**:0.3,
+> TBD
+
+**"starting_rc_stream_length"**:5,
+> TBD
+
+**"min_rc_stream_length"**:1,
+> TBD
+
+**"rc_stream_window_step_shorter"**:0.01,
+> TBD
+
+**"rc_stream_window_step_longer"**:1,
+> TBD
+
+**"selection_modifier_step_up"**:1,
+> TBD
+
+**"selection_modifier_step_down"**:0.01	
+> TBD
+
+</details>
+<br/>
+<br/>
+<!-- reinforcement_context_kernel end -->
+
 </details>
 <br/>
 <br/>
 <!-- Selection Modifier type end -->
 
+**"rewarded_selection_landscape_type"**:"circular_landscape",  
+**"unrewarded_selection_landscape_type"**:"none", 
+
+**"rewarded_parent_selection_type"**:"linear_roulette_function_njit", 	
+**"unrewarded_parent_selection_type"**:"random_fitness_simplifed_njit", 
+**"linear_under_min_behaviors_selection_type"**:"random_fitness_simplifed_njit",  
+**"linear_selection_min_behaviors"**:2,  
+ 
+ 
+**"recombination_type"**:"bitwise_recombination_njit",
+
+**"mutation_type"**:**'string'**
+
+<!-- mutation types start -->
+<details>
+<summary>mutation types</summary>
+<br/>
+
+**'bitflip_by_individual'**
+> TBD
+
+**'bitflip_by_individual_se_entropy_modified'** (deactivated)
+> TBD
+
+**'bitflip_by_individual_se_time_modified'** 
+> TBD
+
+**'bitflip_by_individual_min1'**
+> TBD
+
+**'bitflip_by_individual_min1_every_x'**
+> TBD
+
+<!-- mutation modifiers 'bitflip_by_individual_min1_every_x' start -->
+<details>
+<summary>'bitflip_by_individual_min1_every_x' modifiers</summary>
+<br/>
+
+**"mutation_modifier_parameters"**: \{ **strings**:**values**,\.\.\. \}
+> TBD
+
+**"mutation_min_every_x_modifier"**:**positive integer**
+> TBD
+
 </details>
 <br/>
 <br/>
+<!-- mutation modifiers 'bitflip_by_individual_min1_every_x' end -->
+
+
+</details>
+<br/>
+<br/>
+<!-- mutation types end -->
+
+
+
+
+
+</details>
+<br/>
+<br/>
+<!-- procedure settings end -->
+
+
 
 # Stimulus Environment Settings
 
